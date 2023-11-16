@@ -107,18 +107,19 @@ And restart Wamp server
 
 ### Tools  
 
-GitHub [GitHub](https://github.com/).
+* GitHub [GitHub](https://github.com/).
 
-DBeaver Community [DBeaver Community]().
+* DBeaver Community [DBeaver Community]().
 
-FontAwesome [Fontawesome](https://fontawesome.com/icons) and CDN font-awesome [CDN font-awesome](https://cdnjs.com/libraries/font-awesome). 
+* FontAwesome [Fontawesome](https://fontawesome.com/icons) and CDN font-awesome [CDN font-awesome](https://cdnjs.com/libraries/font-awesome). 
 
-Google Fonts [Google Fonts](https://fonts.google.com/).
+* Google Fonts [Google Fonts](https://fonts.google.com/).
 
-Unsplash [Unsplash](https://unsplash.com/fr).
+* Unsplash [Unsplash](https://unsplash.com/fr).
 
-IDE
-Visual Studio Code [Visual Studio Code](https://code.visualstudio.com/).
+### IDE  
+
+* Visual Studio Code [Visual Studio Code](https://code.visualstudio.com/).
 
 ---   
 

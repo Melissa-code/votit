@@ -1,7 +1,7 @@
 <?php 
 require_once('templates/header.php'); 
 
-$polls = getPolls($pdo);
+$polls = getPolls($pdo, HOME_POLLS_LIMIT);
 
 ?>
 

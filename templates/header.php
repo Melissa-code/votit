@@ -31,7 +31,5 @@ require_once('lib/poll.php');
         </header>
     </div>
 
-    <div class="b-example-divider"></div>
-
     <!-- Main -->
-    <main>
+    <main class="container">
