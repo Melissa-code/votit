@@ -68,6 +68,7 @@ function getPollResultByPollId(PDO $pdo, int $id): array
 }
 
 /**
+ * Get the total number of the users
  * 
  * @param PDO $pdo 
  * @param int $id (poll_id)

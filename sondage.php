@@ -17,8 +17,6 @@ if (isset($_GET['id'])) {
     $error404 = true;
 }
 
-//var_dump($totalUsers); 
-
 require_once('templates/header.php'); 
 
 // Display the page for a poll 
