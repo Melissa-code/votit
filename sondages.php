@@ -1,10 +1,10 @@
 <?php 
-require_once('templates/header.php'); 
+require_once('lib/required_files.php'); 
 
 $polls = getPolls($pdo);
 
+require_once('templates/header.php'); 
 ?>
-
 
 <section>
     <h1>Tous les sondages</h1>

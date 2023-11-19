@@ -1,8 +1,9 @@
 <?php 
-require_once('templates/header.php'); 
+require_once('lib/required_files.php'); 
 
 $polls = getPolls($pdo, HOME_POLLS_LIMIT);
 
+require_once('templates/header.php'); 
 ?>
 
 <div class="container col-xxl-8 px-4 py-5">
