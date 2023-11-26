@@ -2,17 +2,29 @@
 require_once('lib/required_files.php'); 
 
 $error404 = false;
+$messages = [];
+$errors = []; 
 
 if (isset($_GET['id'])) {
     $id = (int)$_GET['id']; 
     $poll = getPollById($pdo, $id); 
+
     if ($poll) {
         $pageTitle = $poll['title'];
 
         // Vote form
         if (isset($_SESSION['user']) && isset($_POST['voteSubmit'])) {
-            removeVoteByPollIdAndUserId($pdo, $id, (int)$_SESSION['user']['id']);
-            $res = addVote($pdo, $_POST['items'], (int)$_SESSION['user']['id']); 
+            if (empty($_POST['items'])) {
+                $errors[] = "Vous devez séléctionner au moins une proposition."; 
+            } else {
+                removeVoteByPollIdAndUserId($pdo, $id, (int)$_SESSION['user']['id']);
+                $resAddVote = addVote($pdo, $_POST['items'], (int)$_SESSION['user']['id']); 
+                if ($resAddVote) {
+                    $messages[] = "Votre réponse a bien été prise en compte."; 
+                } else {
+                    $errors[] = "Une erreur est survenue pendant le vote."; 
+                }
+            }
         }
         $results = getPollResultByPollId($pdo, $id); 
         $totalUsers = getPollTotalUsersByPollId($pdo, $id); 
@@ -63,13 +75,26 @@ if (!$error404) {
                     <form action="" method="POST">
                         <h2>Votez pour ce sondage</h2>
                         <h3><?= $poll['title'] ?></h3> 
-                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                        <!-- Success message --> 
+                        <?php if ($messages) {
+                            foreach ($messages as $message) { ?>
+                                <div class="alert alert-success my-2 text-center fw-bold" role="alert" ; ><?= $message ?></div>
+                            <?php }
+                        } ?>
+                        <?php if ($errors) {
+                            foreach ($errors as $error) { ?>
+                                <div class="alert alert-danger my-2 text-center fw-bold" role="alert" ; ><?= $error ?></div>
+                            <?php }
+                        } ?>
+                        <div class="btn-group m-1" role="group" aria-label="Basic checkbox toggle button group">
                             <?php foreach ($items as $key => $item) { ?>
                                 <input type="checkbox" class="btn-check" id="btncheck<?= $item['id'] ?>" autocomplete="off" value="<?= $item['id'] ?>" name="items[]">
                                 <label class="btn btn-outline-primary" for="btncheck<?= $item['id'] ?>"><?= $item['name'] ?></label>
                             <?php } ?>
                         </div>
-                        <input type="submit" class="btn btn-primary w-25 m-3" id="validationVote" value="Voter" name="voteSubmit">
+                        <div class="m-1">
+                            <input type="submit" class="btn btn-primary w-25" id="validationVote" value="Voter" name="voteSubmit">
+                        </div>
                     </form>
                 <?php } else { ?> 
                     <div class="alert alert-danger my-2 text-center fw-bold" role="alert" ; >Vous devez être connecté pour voter. </div>

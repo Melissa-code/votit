@@ -11,12 +11,12 @@ The company VotIt wants to offer a website for polls about the IT/dev.
 
 ## Table of content  
 
-1- [Technologies](#Technologies)
-2- [Installation](#Installation)
-3- [Run](#Run)
-4- [Built with](#Built-with)
-5- [Author](#Author)
-6- [Licence](#Licence)
+[1-Technologies](#Technologies)
+[2-Installation](#Installation)
+[3-Run](#Run)
+[4-Built with](#Built-with)
+[5-Author](#Author)
+[6-Licence](#Licence)
 
 --- 
 
