@@ -12,15 +12,15 @@ The company VotIt wants to offer a website for polls about the IT/dev.
 ## Table of content  
 
 1- [Technologies](#Technologies)
-1- [Installation](#Installation)
-1- [Run](#Run)
-1- [Built with](#Built-with)
-1- [Author](#Author)
-1- [Licence](#Licence)
+2- [Installation](#Installation)
+3- [Run](#Run)
+4- [Built with](#Built-with)
+5- [Author](#Author)
+6- [Licence](#Licence)
 
 --- 
 
-## Technologies 
+## 1-Technologies 
 
 A list of technologies used within the project :   
 * WAMP Server (Windows, Apache, MySQL, PHP)  
@@ -29,7 +29,7 @@ A list of technologies used within the project :
 
 ---   
 
-## Installation  
+## 2-Installation  
 
 1. Create the project in the www folder of WAMP.  
 
@@ -85,16 +85,16 @@ And restart Wamp server
 
 ---  
 
-## Run 
+## 3-Run 
 
 * Start WAMP if it's not already started.  
 * Open your browser and navigate directly to http://votit.local  (or http://localhost/votit/)   
 
 ---  
 
-## Built with  
+## 4-Built with  
 
-### Languages and Frameworks  
+### 4-1-Languages and Frameworks  
 
 * PHP 8.1 [PHP Documentation PHP Documentation](https://www.php.net/manual/fr/index.php).   
 
@@ -108,24 +108,24 @@ And restart Wamp server
 
 * Git [Git Documentation Git Documentation](https://git-scm.com/doc).  
 
-### Tools  
+### 4-2-Tools  
 
 * GitHub [GitHub](https://github.com/).
 
 * FontAwesome [Fontawesome](https://fontawesome.com/icons) and CDN font-awesome [CDN font-awesome](https://cdnjs.com/libraries/font-awesome). 
 
-### IDE  
+### 4-3-IDE  
 
 * Visual Studio Code [Visual Studio Code](https://code.visualstudio.com/).
 
 ---   
 
-## Author    
+## 5-Author    
 
 Melissa-code  
 
 ---   
 
-## Licence  
+## 6-Licence  
 
 MIT
