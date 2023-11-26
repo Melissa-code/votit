@@ -38,7 +38,7 @@ $mainMenu = [
             <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
             <span class="fs-4"><?= SITE_NAME ?></span>
         </a>
-
+        <!-- Links of the navigation menu -->
         <ul class="nav nav-pills align-items-center">
         <?php foreach ($mainMenu as $linkPage => $linkTitle): ?>
             <li class="nav-item">

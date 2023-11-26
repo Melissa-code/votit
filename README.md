@@ -5,17 +5,20 @@ The company VotIt wants to offer a website for polls about the IT/dev.
 * When a user creates a poll, he could add some proposals. 
 * A poll belongs to a category (front-end, back-end, devops, mobile, UI/UX).
 * The result of the poll must be displayed by a progression bar
-* The polls can be filtered (bycatégory with a search)   
+* The polls can be filtered (by category with a search)   
 
 --- 
 
 ## Table of content  
 
+1- [Technologies](#Technologies)
+1- [Installation](#Installation)
+1- [Run](#Run)
+1- [Built with](#Built-with)
+1- [Author](#Author)
+1- [Licence](#Licence)
+
 --- 
-
-## General info   
-
----  
 
 ## Technologies 
 
@@ -31,10 +34,10 @@ A list of technologies used within the project :
 1. Create the project in the www folder of WAMP.  
 
 2. Download the zip or clone the project in local :  
-git clone [https://github.com/Melissa-code/votit.git](https://github.com/Melissa-code/votit.git)
+`git clone [https://github.com/Melissa-code/votit.git](https://github.com/Melissa-code/votit.git)`
 
 3. Move into the directory :  
-cd /path/to/the/file/votit  
+`cd /path/to/the/file/votit`
 
 4. Open the project with a code editor, for instance Visual Studio Code.  
 
@@ -109,13 +112,7 @@ And restart Wamp server
 
 * GitHub [GitHub](https://github.com/).
 
-* DBeaver Community [DBeaver Community]().
-
 * FontAwesome [Fontawesome](https://fontawesome.com/icons) and CDN font-awesome [CDN font-awesome](https://cdnjs.com/libraries/font-awesome). 
-
-* Google Fonts [Google Fonts](https://fonts.google.com/).
-
-* Unsplash [Unsplash](https://unsplash.com/fr).
 
 ### IDE  
 
@@ -131,3 +128,4 @@ Melissa-code
 
 ## Licence  
 
+MIT

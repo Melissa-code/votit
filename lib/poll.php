@@ -31,7 +31,7 @@ function getPolls(PDO $pdo, int $limit = null): array
  * Get one poll by id in the database 
  * 
  * @param PDO $pdo 
- * @param int $id  
+ * @param int $id (poll_id)
  * @return array|bool 
  */
 function getPollById(PDO $pdo, int $id): array|bool
@@ -91,4 +91,72 @@ function getPollTotalUsersByPollId(PDO $pdo, int $id): int
     } else {
         return 0; 
     }
+}
+
+/**
+ * Get all the propositions to vote for a poll 
+ * 
+ * @param PDO $pdo 
+ * @param int $id (poll_id)
+ * @return array
+ */
+function getPollItems(PDO $pdo, int $id) : array
+{
+    $query = $pdo->prepare(
+        "SELECT * 
+        FROM poll_item 
+        WHERE poll_id = :id
+        ORDER BY name ASC"
+    );
+    $query->bindValue(':id', $id, PDO::PARAM_INT); 
+    $query->execute();
+
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
+ * Add a vote for a poll 
+ * 
+ * @param PDO $pdo 
+ * @param array $items
+ * @param int $user_id 
+ * @return bool
+ */
+function addVote(PDO $pdo, array $items, int $user_id): bool
+{
+    $query = $pdo->prepare(
+        "INSERT INTO user_poll_item (user_id, poll_item_id) 
+        VALUES (:user_id, :poll_item_id)"
+    );
+    $query->bindValue(':user_id', $user_id, PDO::PARAM_INT); 
+    $res = true; 
+    foreach ($items as $key => $itemId) {
+        $query->bindValue(':poll_item_id', (int)$itemId, PDO::PARAM_INT); 
+        if (!$query->execute()) {
+            $res = false; 
+        }
+    }
+    
+    return $res;
+}
+
+/**
+ * Delete the propositions of the user for a poll 
+ * 
+ * @param PDO $pdo 
+ * @param int $poll_id 
+ * @param int $user_id 
+ * @return bool
+ */
+function removeVoteByPollIdAndUserId(PDO $pdo, int $poll_id, int $user_id): bool
+{
+    $query = $pdo->prepare(
+        "DELETE upi FROM user_poll_item AS upi
+        JOIN poll_item AS pi 
+        ON upi.poll_item_id = pi.id
+        WHERE pi.poll_id = :poll_id AND upi.user_id = :user_id"
+    ); 
+    $query->bindValue(':poll_id', $poll_id, PDO::PARAM_INT); 
+    $query->bindValue(':user_id', $user_id, PDO::PARAM_INT); 
+    return $query->execute();
 }
