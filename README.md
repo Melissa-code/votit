@@ -7,6 +7,8 @@ The company VotIt wants to offer a website for polls about the IT/dev.
 * The result of the poll must be displayed by a progression bar
 * The polls can be filtered (by category with a search)   
 
+<img src="./assets/images/votit.png" width="200" title="Votit">
+
 --- 
 
 ## Table of content  

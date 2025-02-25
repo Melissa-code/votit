@@ -160,3 +160,30 @@ function removeVoteByPollIdAndUserId(PDO $pdo, int $poll_id, int $user_id): bool
     $query->bindValue(':user_id', $user_id, PDO::PARAM_INT); 
     return $query->execute();
 }
+
+/**
+ * Add a vote for a poll 
+ * 
+ * @param PDO $pdo 
+ * @return bool|int
+ */
+function savePoll(
+    PDO $pdo, 
+    string $title, 
+    string $description, 
+    int $category_id, 
+    int $user_id): bool|int {
+    $query = $pdo->prepare(
+        "INSERT INTO poll (title, description, category_id, user_id) 
+        VALUES (:title, :description, :category_id, :user_id)"
+    );
+    $query->bindValue(':title', $title, PDO::PARAM_STR); 
+    $query->bindValue(':description', $description, PDO::PARAM_STR); 
+    $query->bindValue(':category_id', $category_id, PDO::PARAM_INT); 
+    $query->bindValue(':user_id', $user_id, PDO::PARAM_INT); 
+    if ($query->execute()) {
+        return $pdo->lastInsertId(); 
+    } else {
+        return $res = false; 
+    }
+}
